@@ -1,10 +1,13 @@
 package com.substring.chat.chat_app_backened.controllers;
 
+import com.substring.chat.chat_app_backened.entities.Message;
 import com.substring.chat.chat_app_backened.entities.room;
 import com.substring.chat.chat_app_backened.repositiries.RoomRepo;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
+
+import java.util.List;
 
 @RestController
 @RequestMapping("/api/v1/rooms")
@@ -38,9 +41,10 @@ public RoomController(RoomRepo roomrepo) {
 
         room r= roomrepo.findbyRoomid(roomId);
 
-        if(r==null)
+        if(r==null) {
             return ResponseEntity.badRequest()
                     .body("room not found");
+        }
             return ResponseEntity.ok(r);
 
     }
@@ -49,6 +53,26 @@ public RoomController(RoomRepo roomrepo) {
 
 
     // get messages of room
+
+    @GetMapping("/{roomId}/messages")
+    public ResponseEntity<List<Message>> getmessages(
+            @PathVariable String roomId,
+            @RequestParam(value="Page", defaultValue = "0", required = false) int page,
+            @RequestParam(value = "Size", defaultValue ="20", required=false ) int size
+    ) {
+
+        room r = roomrepo.findbyRoomid(roomId);
+        if (r == null) {
+            return ResponseEntity.badRequest().build()
+                    ;
+        }
+
+
+
+
+    }
+
+
 
 
 }

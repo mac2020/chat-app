@@ -20,15 +20,16 @@ public class room {
     @Id
     private String id;  // Mongodb unique identifier just like we have primary key in mysql.
     private String roomid;
-    private String hello;
+
     List<Message> messages=new ArrayList<>();
 
 
     public void setId(String id) {
         this.id = id;
     }
-
     public void setRoomid(String roomid) {
         this.roomid = roomid;
     }
+
+
 }
