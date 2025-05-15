@@ -23,6 +23,9 @@ public class room {
 
     List<Message> messages=new ArrayList<>();
 
+    public List<Message> getMessages() {
+        return messages;
+    }
 
     public void setId(String id) {
         this.id = id;

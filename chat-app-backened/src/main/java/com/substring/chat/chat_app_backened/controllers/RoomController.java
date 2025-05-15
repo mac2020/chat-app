@@ -67,6 +67,8 @@ public RoomController(RoomRepo roomrepo) {
                     ;
         }
 
+        List<Message> messages=r.getMessages();
+        return ResponseEntity.ok(messages);
 
 
 
