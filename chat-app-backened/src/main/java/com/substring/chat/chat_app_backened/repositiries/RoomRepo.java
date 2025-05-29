@@ -6,7 +6,7 @@ import org.springframework.data.mongodb.repository.MongoRepository;
 public interface RoomRepo extends MongoRepository<room, String>{
     // get room using roomid
 
-    room findbyRoomid(String roomId);
+    room findByRoomid(String roomId);
 
 
 }

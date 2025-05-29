@@ -19,7 +19,7 @@ public RoomController(RoomRepo roomrepo) {
 }
     @PostMapping
     public ResponseEntity<?> createRoom(@RequestBody String roomId) {
-        if (roomrepo.findbyRoomid(roomId) != null) {
+        if (roomrepo.findByRoomid(roomId) != null) {
             // room is already there
             return ResponseEntity.badRequest().body("room already exist");
         }
@@ -39,7 +39,7 @@ public RoomController(RoomRepo roomrepo) {
                 @PathVariable String roomId
     )    {
 
-        room r= roomrepo.findbyRoomid(roomId);
+        room r= roomrepo.findByRoomid(roomId);
 
         if(r==null) {
             return ResponseEntity.badRequest()
@@ -61,7 +61,7 @@ public RoomController(RoomRepo roomrepo) {
             @RequestParam(value = "Size", defaultValue ="20", required=false ) int size
     ) {
 
-        room r = roomrepo.findbyRoomid(roomId);
+        room r = roomrepo.findByRoomid(roomId);
         if (r == null) {
             return ResponseEntity.badRequest().build()
                     ;

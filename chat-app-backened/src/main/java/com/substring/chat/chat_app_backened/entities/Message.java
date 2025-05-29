@@ -20,6 +20,10 @@ public class Message {
         return content;
     }
 
+    public LocalDateTime getTimeStamp() {
+        return timeStamp;
+    }
+
     private String sender;
     private String content;
     private LocalDateTime timeStamp;
